@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#5C1A26" />
+  <title>Doe Sangue</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <symbol id="heart" viewBox="0 0 24 24">
+      <path
+        d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z" />
+    </symbol>
+    <symbol id="home" viewBox="0 0 24 24">
+      <path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      <path d="M9 22V12h6v10" />
+    </symbol>
+    <symbol id="cal" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <path d="M16 2v4M8 2v4M3 10h18" />
+    </symbol>
+    <symbol id="pulse" viewBox="0 0 24 24">
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+    </symbol>
+    <symbol id="user" viewBox="0 0 24 24">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </symbol>
+    <symbol id="clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 6v6l4 2" />
+    </symbol>
+    <symbol id="info" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 8v4M12 16h.01" />
+    </symbol>
+    <symbol id="out" viewBox="0 0 24 24">
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
+    </symbol>
+    <symbol id="eye" viewBox="0 0 24 24">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
+    </symbol>
+    <symbol id="plus" viewBox="0 0 24 24">
+      <path d="M12 5v14M5 12h14" />
+    </symbol>
+  </svg>
+
+  <div id="phone">
+    <!-- LOGIN -->
+    <section class="scr auth on" id="s-login">
+      <div class="hero">
+        <div class="brand">
+          <div class="mark">
+            <svg class="i f">
+              <use href="#heart" />
+            </svg>
+          </div>
+          <b class="serif">Doe Sangue</b>
+        </div>
+        <h1 class="serif">Cada gota transforma <em>até quatro vidas.</em></h1>
+        <small>Plataforma do Doador</small>
+      </div>
+      <div class="sheet">
+        <div class="eyebrow">Acesso seguro</div>
+        <h2 class="serif">Bem-vindo</h2>
+        <p class="sub">Entre com suas credenciais para acessar sua conta</p>
+        <div class="field">
+          <label>Endereço de e-mail</label><input id="l-email" type="email" inputmode="email" autocomplete="email"
+            placeholder="seu@email.com" />
+        </div>
+        <div class="field">
+          <label>Senha</label>
+          <div class="pw">
+            <input id="l-pass" type="password" autocomplete="current-password" placeholder="••••••••" /><button
+              type="button" onclick="pw('l-pass')" aria-label="Mostrar senha">
+              <svg class="i">
+                <use href="#eye" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="err" id="l-err"></div>
+        <button class="btn" onclick="login()">Entrar na conta</button>
+        <p class="lnk"><a href="#">Esqueci minha senha</a></p>
+        <p class="lnk">
+          Não tem uma conta?
+          <a href="#" onclick="show('s-cad');return false">Cadastre-se gratuitamente</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- CADASTRO -->
+    <section class="scr auth" id="s-cad">
+      <div class="hero">
+        <div class="brand">
+          <div class="mark">
+            <svg class="i f">
+              <use href="#heart" />
+            </svg>
+          </div>
+          <b class="serif">Doe Sangue</b>
+        </div>
+        <h1 class="serif">Junte-se a quem <em>faz a diferença.</em></h1>
+        <small>Milhares de doadores ativos</small>
+      </div>
+      <div class="sheet">
+        <div class="eyebrow">Novo cadastro</div>
+        <h2 class="serif">Criar conta</h2>
+        <p class="sub">
+          Apenas contas autorizadas podem se cadastrar nesta plataforma.
+        </p>
+        <div class="field">
+          <label>Nome completo</label><input id="c-nome" autocomplete="name" placeholder="Como consta no documento" />
+        </div>
+        <div class="field">
+          <label>E-mail</label><input id="c-email" type="email" inputmode="email" placeholder="seu@email.com" />
+        </div>
+        <div class="field">
+          <label>Telefone</label><input id="c-tel" type="tel" inputmode="tel" placeholder="(12) 99999-9999" />
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>Senha</label><input id="c-pass" type="password" placeholder="••••••••" />
+          </div>
+          <div class="field">
+            <label>Confirmar</label><input id="c-conf" type="password" placeholder="••••••••" />
+          </div>
+        </div>
+        <div class="err" id="c-err"></div>
+        <button class="btn" onclick="cadastro()">Criar minha conta</button>
+        <p class="lnk">
+          Já tem uma conta?
+          <a href="#" onclick="show('s-login');return false">Fazer login</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- APP -->
+    <section class="scr" id="s-app">
+      <header class="top">
+        <h3 class="serif" id="title">Visão Geral</h3>
+        <div class="av">
+          <svg class="i">
+            <use href="#user" />
+          </svg>
+        </div>
+      </header>
+      <main id="main">
+        <div class="pg on" id="p-home">
+          <div class="ph">
+            <div class="eyebrow">Plataforma do Doador</div>
+            <h1 class="serif">Bom dia, Yasmin.</h1>
+            <p>Acompanhe seu histórico e próximas doações.</p>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <div class="sic">
+                <svg class="i">
+                  <use href="#heart" />
+                </svg>
+              </div>
+              <div class="sv serif">3</div>
+              <div class="sl">Doações realizadas</div>
+            </div>
+            <div class="stat">
+              <div class="sic">
+                <svg class="i">
+                  <use href="#cal" />
+                </svg>
+              </div>
+              <div class="sv serif" id="n-ativos">1</div>
+              <div class="sl">Agendamentos ativos</div>
+            </div>
+            <div class="stat">
+              <div class="sic">
+                <svg class="i">
+                  <use href="#info" />
+                </svg>
+              </div>
+              <div class="sv serif">AB−</div>
+              <div class="sl">Tipo sanguíneo</div>
+            </div>
+            <div class="stat">
+              <div class="sic">
+                <svg class="i">
+                  <use href="#clock" />
+                </svg>
+              </div>
+              <div class="sv serif">2025</div>
+              <div class="sl">Doador desde</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="ct serif">Próximas doações</div>
+            <div class="item">
+              <div class="date serif"><b>25</b><span>Mai</span></div>
+              <div>
+                <div class="it">Hemocentro Central</div>
+                <div class="is">Rua das Flores, 123 — Centro</div>
+                <div class="itm">08:00 — Sangue total</div>
+              </div>
+            </div>
+            <div class="acts">
+              <button class="btn sm" onclick="tab('agenda')">
+                Ver detalhes</button><button class="btn sm out" onclick="sheet(true)">
+                Novo agendamento
+              </button>
+            </div>
+          </div>
+          <div class="cta">
+            <div class="eyebrow">Campanha ativa</div>
+            <h3 class="serif">Campanha de Inverno 2026</h3>
+            <p>
+              Os estoques caem nesta época do ano. Sua doação pode fazer a
+              diferença para pacientes em tratamento.
+            </p>
+            <button onclick="tab('campanhas')">Saiba mais e participe</button>
+          </div>
+        </div>
+
+        <div class="pg" id="p-agenda">
+          <div class="ph">
+            <div class="eyebrow">Agenda</div>
+            <h1 class="serif">Agendamentos</h1>
+            <p>Gerencie suas sessões de doação agendadas.</p>
+          </div>
+          <button class="btn" style="margin-bottom: 16px" onclick="sheet(true)">
+            + Novo agendamento
+          </button>
+          <div id="list-agenda"></div>
+        </div>
+
+        <div class="pg" id="p-doacoes">
+          <div class="ph">
+            <div class="eyebrow">Histórico</div>
+            <h1 class="serif">Minhas Doações</h1>
+            <p>Registro completo de todas as suas contribuições.</p>
+          </div>
+          <div id="list-doacoes"></div>
+        </div>
+
+        <div class="pg" id="p-campanhas">
+          <div class="ph">
+            <div class="eyebrow">Iniciativas ativas</div>
+            <h1 class="serif">Campanhas</h1>
+            <p>Participe e ajude a suprir estoques críticos.</p>
+          </div>
+          <div id="list-camp"></div>
+        </div>
+
+        <div class="pg" id="p-perfil">
+          <div class="ph">
+            <div class="eyebrow">Perfil</div>
+            <h1 class="serif">Meus Dados</h1>
+            <p>Mantenha suas informações sempre atualizadas.</p>
+          </div>
+          <div class="card">
+            <div class="prof">
+              <div class="pav">
+                <svg class="i">
+                  <use href="#user" />
+                </svg>
+              </div>
+              <div>
+                <div class="serif" style="font-size: 1.25rem; font-weight: 700">
+                  Yasmin Ukrainski Silva
+                </div>
+                <div class="is">yasmin.usilva@gmail.com</div>
+                <span class="badge g" style="margin-top: 6px">Doador ativo</span>
+              </div>
+            </div>
+            <div class="fs">Informações pessoais</div>
+            <div class="field">
+              <label>Nome completo</label><input value="Yasmin Ukrainski Silva" />
+            </div>
+            <div class="field">
+              <label>E-mail</label><input type="email" value="yasmin.usilva@gmail.com" />
+            </div>
+            <div class="field">
+              <label>Telefone</label><input type="tel" value="(41) 99999-9245" />
+            </div>
+            <div class="fs">Dados clínicos</div>
+            <div class="row2">
+              <div class="field">
+                <label>Tipo sanguíneo</label><input value="AB−" />
+              </div>
+              <div class="field">
+                <label>Doador desde</label><input value="2025" />
+              </div>
+            </div>
+            <button class="btn" onclick="toast('Dados atualizados com sucesso.')">
+              Salvar alterações
+            </button>
+          </div>
+          <button class="logout" onclick="logout()">
+            <svg class="i" style="width: 16px; height: 16px">
+              <use href="#out" />
+            </svg>Encerrar sessão
+          </button>
+        </div>
+      </main>
+      <nav class="tabs">
+        <button class="tab on" data-t="home" onclick="tab('home')">
+          <svg class="i">
+            <use href="#home" />
+          </svg>Início
+        </button>
+        <button class="tab" data-t="agenda" onclick="tab('agenda')">
+          <svg class="i">
+            <use href="#cal" />
+          </svg>Agenda
+        </button>
+        <button class="tab" data-t="doacoes" onclick="tab('doacoes')">
+          <svg class="i">
+            <use href="#heart" />
+          </svg>Doações
+        </button>
+        <button class="tab" data-t="campanhas" onclick="tab('campanhas')">
+          <svg class="i">
+            <use href="#pulse" />
+          </svg>Campanhas
+        </button>
+        <button class="tab" data-t="perfil" onclick="tab('perfil')">
+          <svg class="i">
+            <use href="#user" />
+          </svg>Perfil
+        </button>
+      </nav>
+    </section>
+
+    <!-- BOTTOM SHEET -->
+    <div class="ov" id="ov" onclick="sheet(false)"></div>
+    <div class="bs" id="bs">
+      <div class="grab"></div>
+      <div class="eyebrow">Nova solicitação</div>
+      <h3 class="serif">Agendar doação</h3>
+      <div class="field">
+        <label>Unidade de coleta</label><select id="a-un">
+          <option>Hemocentro Central</option>
+          <option>Unidade Móvel</option>
+          <option>Hemocentro Norte</option>
+        </select>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Data preferida</label><input type="date" id="a-dt" />
+        </div>
+        <div class="field">
+          <label>Horário</label><select id="a-hr">
+            <option>07:00</option>
+            <option>08:00</option>
+            <option>09:00</option>
+            <option>10:00</option>
+            <option>11:00</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Tipo de doação</label><select id="a-tp">
+          <option>Sangue total</option>
+          <option>Plaquetas</option>
+          <option>Plasma</option>
+        </select>
+      </div>
+      <div class="acts">
+        <button class="btn ghost" style="flex: 1" onclick="sheet(false)">
+          Cancelar</button><button class="btn" style="flex: 1.6" onclick="agendar()">
+          Confirmar
+        </button>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
